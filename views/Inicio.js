@@ -10,16 +10,14 @@ export default function Inicio({navigation}) {
   useEffect(() => {
     const obtenerClientesApi = async () => {
       try {
-        const url = 'http://192.168.0.6:3000/clientes';
 
-        const resultado = await Axios.get(url);
+        const resultado = await Axios.get('http://192.168.0.6:3000/clientes');
         setClientes(resultado.data);
         setReload(false);
       } catch (error) {
         console.log(error);
       }
     };
-    // if(reload)
     obtenerClientesApi();
   }, [reload]);
 
